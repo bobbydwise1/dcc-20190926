@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scripts.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href=css/styles.css rel="stylesheet" type="text/css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Code Problem 2019-09-26</title>
+</head>
+<body>
+  <div class="container">
+  <h1><b>Daily Code Problem 2019-09-26</b></h1>
+  <p>This problem was asked by Google.</p>
+
+  <p>You are given an N by M 2D matrix of lowercase letters. Determine the minimum number of columns that can be removed to ensure that each row is ordered from top to bottom lexicographically. That is, the letter at each column is lexicographically later as you go down each row. It does not matter whether each row itself is ordered lexicographically.</p>
+
+  <p>For example, given the following table:</p>
+
+<pre>cba
+daf
+ghi</pre>
+
+  <p>This is not ordered because of the a in the center. We can remove the second column to make it ordered:</p>
+
+<pre>ca
+df
+gi</pre>
+
+  <p>So your function should return 1, since we only needed to remove 1 column.</p>
+
+  <p>As another example, given the following table:</p>
+
+<pre>abcdef</pre>
+
+  <p>Your function should return 0, since the rows are already ordered (there's only one row).</p>
+
+  <p>As another example, given the following table:</p>
+
+<pre>zyx
+wvu
+tsr</pre>
+
+  <p>Your function should return 3, since we would need to remove all the columns to order it.</p>
+  <h4><b>Answer:</b></h4>
+    <div style='border: 2px solid black; margin: 10px; padding: 10px'>
+    <form id='form-1'>
+      <p>Enter a value: <input id='input-1' type='number' required min='2' max='12'></input></p>
+      <button id='button-1' type='submit'>Submit!</button>
+    </form>
+    </div>
+    <div style='border: 2px solid black; margin: 10px; padding: 10px'>
+    <p>Number of X: <b><span id='output-1'></span></b></p>
+    </div>
+  </div>
+</body>
+</html>
