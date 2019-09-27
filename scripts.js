@@ -32,7 +32,7 @@ tsr
 Your function should return 3, since we would need to remove all the columns to order it.
 */
 
-//Prolly not needed
+//Prolly not needed - keep for ref
 const convArr = (yourMatrix) => {
   let copied = JSON.parse(JSON.stringify(yourMatrix)) //Create a simple deep clone of original matrix (Data loss occurs with more complex object references)
   for ( let y = 0; y < copied.length; y++ ) {
@@ -43,7 +43,7 @@ const convArr = (yourMatrix) => {
   return copied
 }
 
-//Prolly not needed
+//Prolly not needed - keep for ref
 const purgeCol = (yourMatrix, col) => {
   if ((col > yourMatrix[0].length - 1)||(col < 0 )) {
     return null
@@ -81,10 +81,11 @@ const elimArr = (yourMatrix) => {
   return count
 }
 
+//test cases from example
 let test1 = [
   ['c','b','a'],
   ['d','a','f'],
-  ['g','h','i'],
+  ['g','h','i']
 ]
 
 let test2 = ['a','b','c','d','e','f']
@@ -92,13 +93,13 @@ let test2 = ['a','b','c','d','e','f']
 let test3 = [
   ['z','y','x'],
   ['w','v','u'],
-  ['t','s','r'],
+  ['t','s','r']
 ]
 
 let test4 = [
   ['z','y','x','a'],
   ['w','v','u','b'],
-  ['t','s','r','c'],
+  ['t','s','r','c']
 ]
 
 console.log(elimArr(test1)) //eliminate 1 col
@@ -109,7 +110,11 @@ console.log(elimArr(test4)) //eliminate 3 col
 $(document).ready(function() {
   $('#form-1').submit(function(){
     event.preventDefault()
-    $('#output-1').text(1)
+    let input1 = $('#input-1').val()
+    input1 = input1.replace(/\'/g,'"')  //JSON.parse does not like single quotes for arrays
+    input1 = JSON.parse(input1)
+    event.preventDefault()
+    $('#output-1').text(elimArr(input1))
 
   })
 });
