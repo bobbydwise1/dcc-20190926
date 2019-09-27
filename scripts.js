@@ -32,40 +32,52 @@ tsr
 Your function should return 3, since we would need to remove all the columns to order it.
 */
 
+//Prolly not needed
 const convArr = (yourMatrix) => {
   let copied = JSON.parse(JSON.stringify(yourMatrix)) //Create a simple deep clone of original matrix (Data loss occurs with more complex object references)
-  for ( y = 0; y < copied.length; y++ ) {
-    for ( x = 0; x < copied[0].length; x++ ) {
+  for ( let y = 0; y < copied.length; y++ ) {
+    for ( let x = 0; x < copied[0].length; x++ ) {
       copied[y][x] = copied[y][x].charCodeAt(0)
     }
   }
   return copied
 }
 
+//Prolly not needed
 const purgeCol = (yourMatrix, col) => {
   if ((col > yourMatrix[0].length - 1)||(col < 0 )) {
     return null
   }
   let copied = JSON.parse(JSON.stringify(yourMatrix))
-  for ( y = 0; y < copied.length; y++ ) {
+  for ( let y = 0; y < copied.length; y++ ) {
     copied[y].splice(col,1)
   }
   return copied
 }
 
 const elimArr = (yourMatrix) => {
+  let count = new Array(yourMatrix[0].length)
+  count.fill(0)
   let copied = JSON.parse(JSON.stringify(yourMatrix))
-  for ( y = 0; y < yourMatrix.length-1; y++ ) {
-    for ( x = 0; x < yourMatrix[0].length-1; x++ ) {
+  for ( let y = 0; y < yourMatrix.length-1; y++ ) {
+    for ( let x = 0; x < yourMatrix[0].length; x++ ) {
+      //console.log('what is yourMatrix[y][x]? : ', yourMatrix[y][x])
       if (yourMatrix[y][x] > yourMatrix[y+1][x]) {
-        console.log(y,x)
-        console.log(copied)
-        copied = purgeCol(copied,x)
+        count[x]++
       }
     }
   }
-  console.log(copied)
-  let count = yourMatrix[0].length-copied[0].length
+  //console.log(count)
+  count = count.map(function(element){
+    if (element == 0) {
+      return 0
+    } else {
+      return element/element
+    }
+  })
+  count = count.reduce(function(total, num){
+    return total+num
+  })
   return count
 }
 
@@ -83,7 +95,16 @@ let test3 = [
   ['t','s','r'],
 ]
 
+let test4 = [
+  ['z','y','x','a'],
+  ['w','v','u','b'],
+  ['t','s','r','c'],
+]
 
+console.log(elimArr(test1)) //eliminate 1 col
+console.log(elimArr(test2)) //eliminate 0 col
+console.log(elimArr(test3)) //eliminate 3 col
+console.log(elimArr(test4)) //eliminate 3 col
 
 $(document).ready(function() {
   $('#form-1').submit(function(){
