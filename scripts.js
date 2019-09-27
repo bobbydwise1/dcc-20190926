@@ -32,6 +32,16 @@ tsr
 Your function should return 3, since we would need to remove all the columns to order it.
 */
 
+let test1 = [
+  ['c','b','a'],
+  ['d','a','f'],
+  ['g','h','i'],
+]
+let test2 = [
+  ['z','y','x'],
+  ['w','v','u'],
+  ['t','s','r'],
+]
 
 
 $(document).ready(function() {
